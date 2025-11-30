@@ -38,9 +38,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   border: 2px solid var(--accent-color);
-  padding: var(--section-padding);
+  padding: var(--header-padding);
+  min-height: var(--header-height);
   background-color: var(--background-color);
 }
 
