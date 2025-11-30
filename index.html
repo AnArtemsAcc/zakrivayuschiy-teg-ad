@@ -11,8 +11,47 @@
     <link rel="stylesheet" href="./styles/animations.css" />
   </head>
   <body class="page">
-    <header class="header"></header>
-    <main></main>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <a href="#" class="header__logo">
+            &lt;&frasl;HTML&gt;
+          </a>
+          <h1 class="header__title">
+            Закрывающий тег
+          </h1>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <section class="cards">
+          <article class="card">
+            <div class="card__header">
+              <h2 class="card__title">Заголовок карточки 1</h2>
+            </div>
+            <div class="card__image-wrapper">
+              <img class="card__image" src="./images/image.png" alt="Описание изображения">
+              <div class="card__label">
+                <span class="card__label-text">Лейбл</span>
+              </div>
+            </div>
+            <div class="card__content">
+              <p class="card__text">Здесь будет текст вашей карточки. Это пример содержимого, которое нужно заменить на актуальный контент.</p>
+            </div>
+            <div class="card__actions">
+              <button class="card__icon-button" aria-label="Лайк">
+                <!-- SVG сердца будет здесь -->
+              </button>
+              <button class="card__like-button">
+                <span class="button__text">Like</span>
+              </button>
+            </div>
+          </article>
+          <!-- Добавьте еще 7+ таких карточек -->
+        </section>
+      </div>
+    </main>
     <script src="./scripts/like.js"></script>
   </body>
 </html>

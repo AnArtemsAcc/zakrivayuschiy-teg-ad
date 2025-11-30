@@ -13,4 +13,133 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font);
+  font-variation-settings: 'wght' var(--text-weight);
+  background-color: var(--background-color);
+  background-image: url("/svg/background.svg");
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--accent-color);
+}
+
+/* Основной контейнер с динамическими отступами */
+.container {
+  max-inline-size: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--side-padding);
+}
+
+/* Шапка */
+.header {
+  padding: var(--header-padding);
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: 2px solid var(--accent-color);
+  padding: var(--section-padding);
+  background-color: var(--background-color);
+}
+
+.header__logo {
+  font-family: var(--accent-font);
+  font-size: var(--logo-size);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.header__title {
+  font-family: var(--accent-font);
+  font-size: var(--title-size);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Стили для карточек */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-padding);
+  padding: var(--section-padding) 0;
+}
+
+.card {
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-color);
+}
+
+.card__header {
+  padding: 5px 10px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.card__title {
+  font-family: var(--main-font);
+  font-variation-settings: 'wght' var(--title-weight);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.card__image-wrapper {
+  position: relative;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.card__image {
+  display: block;
+  inline-size: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: var(--side-padding);
+  z-index: 1;
+  mix-blend-mode: hard-light;
+}
+
+.card__label-text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  color: var(--accent-color);
+  text-shadow: 
+    -1px 0 var(--background-color),
+    0 1px var(--background-color),
+    1px 0 var(--background-color),
+    0 -1px var(--background-color);
+  opacity: 0.5;
+}
+
+@supports ((text-stroke: 1px var(--background-color)) or (-webkit-text-stroke: 1px var(--background-color))) {
+  .card__label-text {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--background-color);
+    text-stroke: 1px var(--background-color);
+  }
+}
+
+.card__content {
+  padding: var(--section-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.card__text {
+  font-family: var(--main-font);
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.card__actions {
+  padding: 0 var(--section-padding) var(--section-padding);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 6px;
 }
