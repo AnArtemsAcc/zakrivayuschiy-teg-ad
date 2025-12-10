@@ -160,14 +160,39 @@
   line-height: 0;
 }
 
-.card__icon-button {
-  margin: 12px;
-}
-
 .save-button {
   border: 2px solid black;
   background-color: white;
   cursor: pointer;
   padding: 12.5px 37px;
   line-height: 0;
+}
+
+.card__icon-button {
+  margin: 12px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  width: 39px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color);
+}
+
+/* Стили для SVG сердца */
+.like-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
 }

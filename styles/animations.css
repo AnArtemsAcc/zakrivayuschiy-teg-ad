@@ -1,6 +1,8 @@
 /* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
 
 Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
@@ -8,4 +10,255 @@
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+/* Добавляем переменные для цветов сердца */
+:root {
+  --heart-color: #ff0000;
+  --contour-color: var(--accent-color);
+}
+
+/* Фокус на кнопке с сердцем */
+.card__icon-button {
+  border: 2px solid transparent;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 36px;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--contour-color);
+}
+
+/* Иконка сердца */
+.like-icon {
+  width: 39px;
+  height: 36px;
+  display: block;
+}
+
+.like-icon .heart {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Контур сердца - всегда видимый */
+.like-icon .contour {
+  fill: var(--contour-color);
+  transition: fill 0.1s linear;
+}
+
+/* Сердцевина */
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s;
+}
+
+/* Основное тело сердца */
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s;
+}
+
+/* Искры */
+.like-icon .sparks {
+  fill: var(--heart-color);
+  opacity: 0;
+}
+
+/* Состояние :hover */
+.card__icon-button:hover .core {
+  fill: var(--contour-color);
+  transition: fill 0.3s;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s 0.05s;
+}
+
+/* Состояние :active */
+.card__icon-button:active .core {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.05s;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.1s;
+}
+
+/* Состояние после клика (лайкнутое сердце) */
+.like-icon.is-liked .core {
+  fill: var(--heart-color);
+  transition: fill 0.3s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.03s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  animation: scale-animation 0.3s 0.1s ease-in alternate;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-animation 0.3s 0.3s ease-in alternate;
+}
+
+/* Когда убираем лайк - обратная анимация контура */
+.like-icon:not(.is-liked) .contour {
+  fill: var(--contour-color);
+  transition: fill 0.1s linear;
+}
+
+/* Анимация ховера на кнопке Like */
+.card__like-button {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.card__like-button:hover::before {
+  transform: translateX(0);
+}
+
+.card__like-button:hover .button__text {
+  color: var(--background-color);
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s ease-in-out;
+}
+
+/* Ключевые кадры для анимаций */
+@keyframes scale-animation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes sparks-animation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Анимации для переключателя тем (уже есть) */
+@keyframes path {
+  from {
+    left: 20px;
+  }
+  to {
+    left: 16px;
+  }
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  animation: path 0.5s ease-in-out infinite alternate;
+  top: 0;
+  left: 0;
+}
+
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s;
+}
+
+.theme-menu__button:focus-visible::after {
+  width: 100%;
+}
+
+.theme-menu__button:hover,
+.theme-menu__button:disabled {
+  position: relative;
+  opacity: 0.6;
+  transition: opacity 300ms ease;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+}
+
+/* Добавим анимацию для save-button для единообразия */
+.save-button {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.save-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.save-button:hover::before {
+  transform: translateX(0);
+}
+
+.save-button:hover .button__text,
+.save-button:hover .save-button__icon {
+  color: var(--background-color);
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s ease-in-out;
+}
+
+.save-button__icon {
+  transition: color 0.5s ease-in-out;
+}
