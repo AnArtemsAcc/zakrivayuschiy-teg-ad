@@ -149,7 +149,8 @@
   color: var(--accent-color);
   font-family: var(--accent-font);
   margin: 0; 
-  line-height: 1; }
+  line-height: 1; 
+}
 
 .card__like-button {
   border: 2px solid black;
