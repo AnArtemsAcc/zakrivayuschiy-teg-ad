@@ -237,7 +237,7 @@
             </div>
           </article>
         </section>
-        <button type="button" class="save-button">
+        <button type="button" class="save-button" onclick="document.getElementById('dialog-id').showModal()">
           <svg class="save-button__icon" width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
             <use href="./svg/floppy.svg"/>
           </svg>
@@ -251,9 +251,11 @@
             </svg>
             <span class="dialog__flex-text">Вставьте дискету, чтобы продолжить</span>
           </div>
-          <button type="button" class="button-save" id="dialog-close-button">
-            <span class="button-save-text">ок</span>
-          </button>
+          <form method="dialog">
+            <button type="submit" class="button-save">
+              <span class="button-save-text">ок</span>
+            </button>
+          </form>
         </dialog>
       </div>
     </main>
