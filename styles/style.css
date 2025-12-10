@@ -16,7 +16,7 @@
   font-family: var(--main-font);
   font-variation-settings: 'wght' var(--text-weight);
   background-color: var(--background-color);
-  background-image: url("/svg/background.svg");
+  background-image: url("../images/background.png");
   background-attachment: fixed;
   background-size: cover;
   color: var(--accent-color);
