@@ -100,7 +100,7 @@
 .card__label {
   position: absolute;
   top: 25px;
-  right: var(--side-padding);
+  right: 25px;
   z-index: 1;
   mix-blend-mode: hard-light;
 }
