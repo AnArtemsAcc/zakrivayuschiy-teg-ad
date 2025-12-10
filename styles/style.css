@@ -129,7 +129,7 @@
   padding: var(--section-padding);
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  margin: 25px;
 }
 
 .card__text {
@@ -143,5 +143,5 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 6px;
+  margin: 25px;
 }
