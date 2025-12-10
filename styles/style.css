@@ -212,3 +212,31 @@
   height: 100%;
   display: block;
 }
+
+.card:nth-child(1) .card__image {
+  filter: brightness(120%) contrast(110%);
+}
+
+.card:nth-child(2) .card__image {
+  filter: grayscale(80%);
+}
+
+.card:nth-child(3) .card__image {
+  filter: sepia(60%);
+}
+
+.card:nth-child(4) .card__image {
+  filter: hue-rotate(90deg);
+}
+
+.card:nth-child(5) .card__image {
+  filter: invert(100%);
+}
+
+.card:nth-child(6) .card__image {
+  filter: blur(2px);
+}
+
+.card:nth-child(7) .card__image {
+  filter: saturate(200%);
+}
