@@ -146,3 +146,23 @@
   align-items: center;
   margin: 25px;
 }
+
+.button__text {
+  font-size: 13px;
+  color: var(--accent-color);
+  font-family: var(--accent-font);
+  margin: 0; 
+  line-height: 1; }
+
+.card__like-button {
+  border: 2px solid black;
+  background: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 12.5px 37px;
+  line-height: 0;
+}
+
+.card__icon-button {
+  margin: 12px;
+}
